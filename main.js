@@ -1,14 +1,26 @@
 const jugar = prompt("deseas jugar acertijos? (si/no)").toLowerCase();
 console.log("Tu respuesta a si querieas jugar fue " + jugar);
 
+const acertijos = [
+    { acertijo: "Tengo agujas pero no sé coser, tengo números pero no sé leer, ¿Sabes quién soy?", dificultad: 2, respuesta: "RELOJ"},
+    { acertijo: "No muerdo ni ladro, pero tengo dientes y la casa guardo. ¿Sabes quién soy?", dificultad: 3, respuesta: "LLAVE"},
+    { acertijo: "Soy como un caballo pero no me montan y no tengo color ¿Sabes quién soy?", dificultad: 1, respuesta: "CEBRA"}
+    ]
+    
+const dificultad = parseInt(prompt("Elija la dificultad maxima que desea del 1-3"))
+const filtrar = acertijos.filter(acertijo => acertijo.dificultad <= dificultad)
+console.log("Estos son los acertijos que coincidian con la dificultad que escogiste")
+console.log(filtrar)
+
 let adivino = false;
-let cualaacertijo =0
+let cualaacertijo =0;
+
 if (jugar == "no"){
-    for(let i=0; i<5; i+=1)
+    for(let i=0; i<2; i+=1)
     alert("¿Estas seguro que no quieres probar nuestros maravillosos acertijoz?")
 }
 function resultado(){
-    if (adivino == true){
+    if (adivino ){
         alert("Felicidades esa era la respuesta correcta" )
        }else{
            alert("Esa no era la respuesta correcta vuelve a intentar")
@@ -17,50 +29,55 @@ function resultado(){
 }
 
 if (jugar == "si" && adivino == false){   
-    let cualsera = Math.random()*100;
+ 
+    let cualsera = Math.random() * 33 * dificultad;
     console.log(cualsera)
+let respuestax = ""
             switch (true) {
-                case cualsera >= 67 && cualsera <= 100:
-                    alert("Tengo agujas pero no sé coser, tengo números pero no sé leer, ¿Sabes quién soy?")
-                    cualaacertijo = 1
-                    console.log("Ese era el acertijo numero " + cualaacertijo + " de 3 acertijoz que tiene la pagina")
-                    respuesta1 = prompt("su respuesta solo escriba que es ejemplo (manzana)").toUpperCase();
-                    if (respuesta1 == "RELOJ"){
+                case cualsera >= 66 && cualsera <= 99:
+                    alert(acertijos[0].acertijo + " la dificultad es de " + acertijos[0].dificultad + "/3")
+                    cualaacertijo = 0
+                    while (respuestax.toUpperCase() != acertijos[0].respuesta){
+                        respuestax = prompt("su respuesta solo escriba que es ejemplo (manzana)").toUpperCase();
+                    }
+                    if (respuestax == acertijos[0].respuesta){
                         adivino = true
                     }
                     resultado();
                     break;
-                  case cualsera >= 34 && cualsera <= 66:
-                    alert("No muerdo ni ladro, pero tengo dientes y la casa guardo. ¿Sabes quién soy?");
-                    cualaacertijo = 2
-                    console.log("Ese era el acertijo numero " + cualaacertijo + " de 3 acertijoz que tiene la pagina")
-                    respuesta2 = prompt("su respuesta solo escriba que es ejemplo (manzana)").toUpperCase();
-                    if (respuesta2 == "LLAVE"){
+                    
+                  case cualsera >= 33 && cualsera <= 65:
+                    alert(acertijos[1].acertijo + " la dificultad es de " + acertijos[1].dificultad + "/3");
+                    cualaacertijo = 1
+                    while (respuestax.toUpperCase() != acertijos[1].respuesta){
+                        respuestax = prompt("su respuesta solo escriba que es ejemplo (manzana)").toUpperCase();
+                    }
+                    if (respuestax == acertijos[1].respuesta){
                         adivino = true
                         }
                         resultado();
                     break;
-                  case cualsera >= 1 && cualsera <= 33:
-                    alert("Soy como un caballo pero no me montan y no tengo color ¿Sabes quién soy?");
-                    cualaacertijo = 3
-                    console.log("Ese era el acertijo numero " + cualaacertijo + " de 3 acertijoz que tiene la pagina")
-                    respuesta3 = prompt("su respuesta solo escriba que es ejemplo (manzana)").toUpperCase();
-                    if (respuesta3 == "CEBRA"){
+
+                  case cualsera >= 0 && cualsera <= 32:
+                    alert(acertijos[2].acertijo + " la dificultad es de " + acertijos[2].dificultad + "/3");
+                    cualaacertijo = 2
+                    while (respuestax.toUpperCase() != acertijos[2].respuesta){
+                        respuestax = prompt("su respuesta solo escriba que es ejemplo (manzana)").toUpperCase();
+                    }
+                    if (respuestax == acertijos[2].respuesta){
                         adivino = true
                         }
                         resultado();
                     break;
                 }
+};
+
+if(!adivino){
+alert("Vuelve a intentar suerte la proxima")
+console.log("No adivinaste")
+}else{
+    console.log("adivinaste")
 }
 
-console.log(
-   " Repuesta del acertijo num:1 (RELOJ)"
-)
-console.log(
-    " Repuesta del acertijo num:2 (LLAVE)"
- )
- console.log(
-    " Repuesta del acertijo num:3 (CEBRA)"
- )
-
-
+let Respuestas = acertijos.map(respuesta)
+console.log (Respuestas)
