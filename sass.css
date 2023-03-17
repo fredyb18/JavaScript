@@ -13,7 +13,68 @@ header h1 {
 }
 
 h3 {
-  background-color: rgb(87, 0, 125);
+  background-color: rgb(0, 125, 12);
   font-size: 35px;
+  color: rgb(215, 204, 1);
+}
+
+.buttons .Usar {
+  background-color: rgb(1, 148, 13);
+  color: azure;
+  border: 0px;
+}
+.buttons .Usar:hover {
+  background-color: rgb(3, 174, 18);
+}
+.buttons .Usar:active {
+  background-color: rgb(255, 255, 255);
+  color: black;
+  border: 0px;
+}
+.buttons .noUsar {
+  background-color: rgb(148, 23, 1);
+  color: azure;
+  border: 0px;
+}
+.buttons .noUsar:hover {
+  background-color: rgb(174, 40, 3);
+}
+.buttons .noUsar:active {
+  background-color: rgb(255, 255, 255);
+  color: black;
+}
+.buttons .Jugar {
+  background-color: rgb(241, 249, 0);
+  color: rgb(29, 48, 255);
+  border: 0px;
+  font-weight: bold;
+}
+.buttons .Jugar:hover {
+  background-color: rgb(163, 255, 43);
+}
+.buttons .Jugar:active {
+  background-color: rgb(213, 1, 232);
+}
+
+.contenedor {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  background: rgb(75, 5, 125);
+}
+.contenedor h4 {
+  font-size: 20px;
   color: rgb(24, 255, 182);
+}
+.contenedor button {
+  background-color: rgb(0, 15, 128);
+  color: azure;
+  border: 0px;
+}
+.contenedor button:hover {
+  background-color: rgb(0, 27, 231);
+}
+.contenedor button:active {
+  background-color: rgb(0, 131, 231);
 }/*# sourceMappingURL=sass.css.map */

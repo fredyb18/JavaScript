@@ -1,13 +1,38 @@
-const jugar = prompt("deseas jugar acertijos? (si/no)").toLowerCase();
-console.log("Tu respuesta a si querieas jugar fue " + jugar);
+let cualsera = Math.random()
 
-const acertijos = [
+    const acertijos = [
     { acertijo: "Tengo agujas pero no sé coser, tengo números pero no sé leer, ¿Sabes quién soy?", dificultad: 2, respuesta: "RELOJ"},
     { acertijo: "No muerdo ni ladro, pero tengo dientes y la casa guardo. ¿Sabes quién soy?", dificultad: 3, respuesta: "LLAVE"},
     { acertijo: "Soy como un caballo pero no me montan y no tengo color ¿Sabes quién soy?", dificultad: 1, respuesta: "CEBRA"}
-    ]
-    
-const dificultad = parseInt(prompt("Elija la dificultad maxima que desea del 1-3"))
+        ]
+    const nuevosAcertijos = [
+
+        ]
+
+    const acertijosEnseñar = [
+
+        ]
+let usarPredeterminados
+    const preUsar = document.getElementById("preUsar")
+    preUsar.addEventListener("click", () =>{
+        if(preUsar.classList.contains("Usar")){
+            preUsar.classList.remove("Usar");
+            preUsar.classList.add("noUsar");
+            preUsar.textContent = "No Usar Acertijos Por Defecto"
+            usarPredeterminados = true
+        }else{
+            preUsar.classList.remove("noUsar");
+            preUsar.classList.add("Usar");
+            preUsar.textContent = "Usar Acertijos Por Defecto"
+            usarPredeterminados = false
+        }
+    })
+
+    usarPredeterminados = true ? nuevosAcertijos = [...acertijos,] : nuevosAcertijos = []
+
+
+
+const dificultad = parseInt(prompt("Elija la dificultad maxima que desea del 1 al 3"))
 const filtrar = acertijos.filter(acertijo => acertijo.dificultad <= dificultad)
 console.log("Estos son los acertijos que coincidian con la dificultad que escogiste")
 console.log(filtrar)
@@ -15,10 +40,7 @@ console.log(filtrar)
 let adivino = false;
 let cualaacertijo =0;
 
-if (jugar == "no"){
-    for(let i=0; i<2; i+=1)
-    alert("¿Estas seguro que no quieres probar nuestros maravillosos acertijoz?")
-}
+
 function resultado(){
     if (adivino ){
         alert("Felicidades esa era la respuesta correcta" )
@@ -30,8 +52,8 @@ function resultado(){
 
 if (jugar == "si" && adivino == false){   
  
-    let cualsera = Math.random() * 33 * dificultad;
-    console.log(cualsera)
+   
+
 let respuestax = ""
             switch (true) {
                 case cualsera >= 66 && cualsera <= 99:
@@ -79,5 +101,9 @@ console.log("No adivinaste")
     console.log("adivinaste")
 }
 
-let Respuestas = acertijos.map(respuesta)
-console.log (Respuestas)
+let Respuestas = acertijos.map(acertijo => acertijo.respuesta);
+console.log (Respuestas);
+
+//Dom
+
+const mostrar = document.querySelector(".acertijos")

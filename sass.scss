@@ -1,3 +1,36 @@
+@mixin flex($justify:null, $align:null, $direction: null,){
+    display: flex; 
+    @if $justify != null {
+        justify-content: $justify;
+      }
+      
+      @if $align != null {
+        align-items: $align;
+      }
+      
+      @if $direction != null {
+        flex-direction: $direction;
+      }
+    }
+
+    @mixin button($bckg:null, $clr:null, $border: null, $wght: null,){
+      @if $bckg != null {
+        background-color: $bckg;
+      }
+      
+      @if $clr != null {
+        color: $clr;
+      }
+      
+      @if $border != null {
+        border: $border;
+      }
+
+      @if $wght != null {
+        font-weight: $wght;
+      }
+    }
+
 *{
     margin: 10px;
 }
@@ -13,8 +46,70 @@ header{
     
 }
 
- h3{
-    background-color: rgb(87, 0, 125);
+h3{
+    background-color: rgb(0, 125, 12);
     font-size: 35px;
-    color: rgb(24, 255, 182);
+    color: rgb(215, 204, 1);
+}
+
+.buttons{
+  .Usar{
+    @include button(rgb(1, 148, 13), azure, 0px);
+  }
+
+  .Usar:hover{
+    @include button(rgb(3, 174, 18));
+  }
+
+  .Usar:active{
+    @include button( rgb(255, 255, 255), black, 0px);
+  }
+
+  .noUsar{
+    @include button(rgb(148, 23, 1), azure, 0px);
+  }
+
+  .noUsar:hover{
+    @include button(rgb(174, 40, 3))
+  }
+
+  .noUsar:active{
+    @include button( rgb(255, 255, 255), black,);
+  }
+
+  .Jugar{
+    @include button(rgb(241, 249, 0), rgb(29, 48, 255), 0px, bold);
+  }
+
+  .Jugar:hover{
+    @include button(rgb(163, 255, 43));
+  }
+
+  .Jugar:active{
+    @include button(rgb(213, 1, 232));
+  }
+}
+
+.contenedor{
+    @include flex(center, center, row);
+    background: rgb(75,5,125);
+    
+    h4{
+      font-size: 20px;
+      color: rgb(24, 255, 182);
     }
+  
+    button{
+      background-color: rgb(0, 15, 128);
+      color: azure;
+      border: 0px;
+    }
+  
+    button:hover{
+      background-color: rgb(0, 27, 231);
+    }
+  
+    button:active{
+      background-color: rgb(0, 131, 231);
+    }
+  }
