@@ -13,7 +13,7 @@
       }
     }
 
-    @mixin button($bckg:null, $clr:null, $border: null, $wght: null,){
+    @mixin button($bckg:null, $clr:null, $border: null, $wght: null, $hgt: null, $fsz: null,){
       @if $bckg != null {
         background-color: $bckg;
       }
@@ -29,14 +29,23 @@
       @if $wght != null {
         font-weight: $wght;
       }
+
+      @if $hgt != null {
+        height: $hgt;
+      }
+
+      @if $fsz != null {
+        font-size: $fsz;
+      }
+      
     }
 
 *{
     margin: 10px;
+    font-family: Arial, Helvetica, sans-serif;
 }
 header{
-    display: flex;
-    justify-content: flex-end;
+  @include flex(flex-end );
     background-color: rgb(187, 159, 0);
 
     h1{
@@ -46,15 +55,33 @@ header{
     
 }
 
-h3{
-    background-color: rgb(0, 125, 12);
+.subtitulo{
+  @include flex(flex-end );
+  background-color: rgb(0, 96, 125);
+  h3{
     font-size: 35px;
     color: rgb(215, 204, 1);
 }
+}
+
+.acertijos{
+  background-color: rgb(56, 18, 132);
+  width: 600px;
+}
+.textoAcertijo{
+  color: aliceblue;
+  font-size: 30px;
+}
+
+
+
+
 
 .buttons{
+  @include flex($align: center );
+  
   .Usar{
-    @include button(rgb(1, 148, 13), azure, 0px);
+    @include button(rgb(1, 148, 13), azure, 0px, bold, 40px, 15px);
   }
 
   .Usar:hover{
@@ -66,7 +93,7 @@ h3{
   }
 
   .noUsar{
-    @include button(rgb(148, 23, 1), azure, 0px);
+    @include button(rgb(148, 23, 1), azure, 0px, bold, 40px, 15px);
   }
 
   .noUsar:hover{
@@ -77,8 +104,18 @@ h3{
     @include button( rgb(255, 255, 255), black,);
   }
 
+  .jugando{
+    background-color: rgb(70, 70, 70)
+  }
+  .jugando:hover{
+    background-color: rgb(70, 70, 70)
+  }
+  .jugando:active{
+    background-color: rgb(70, 70, 70)
+  }
+
   .Jugar{
-    @include button(rgb(241, 249, 0), rgb(29, 48, 255), 0px, bold);
+    @include button(rgb(241, 249, 0), rgb(29, 48, 255), 0px, bold, 40px, 25px);
   }
 
   .Jugar:hover{
@@ -93,16 +130,14 @@ h3{
 .contenedor{
     @include flex(center, center, row);
     background: rgb(75,5,125);
-    
+    width: 500px;
     h4{
       font-size: 20px;
       color: rgb(24, 255, 182);
     }
   
     button{
-      background-color: rgb(0, 15, 128);
-      color: azure;
-      border: 0px;
+      @include button( rgb(75,5,125), azure, 0px, bold, 20px, 20px);
     }
   
     button:hover{
@@ -110,6 +145,50 @@ h3{
     }
   
     button:active{
-      background-color: rgb(0, 131, 231);
+      background-color: rgb(4, 141, 245);
+    }
+  }
+  
+  .acertijo { grid-area: acertijo; }
+  
+  .dificultad { grid-area: dificultad; }
+  
+  .respuesta { grid-area: respuesta; }
+  
+  .link { grid-area: link; }
+  
+  input{
+    width: 100px;
+  }
+  .noDisplay{
+    display: none
+  }
+  .siDisplay{
+    width:500px ;
+    display: inline-block
+  }
+  .formButtons{
+    @include flex(null, center, row);
+
+    .formButton{
+      @include button(null, rgb(93, 93, 93), 0px, bold, fit-content, 20px );   
+    }
+    .submit{
+      background-color: rgba(0, 255, 21, 0.75);
+    }
+    .submit:hover{
+      background-color: rgba(77, 255, 163, 0.75);
+    }
+    .submit:active{
+      background-color: rgba(155, 255, 225, 0.75);
+    }
+    .cerrar{
+      background-color: rgb(255, 0, 0, 0.75);
+    }
+    .cerrar:hover{
+      background-color:  rgba(255, 126, 67, 0.75);
+    }
+    .cerrar:active{
+      background-color:  rgba(255, 206, 101, 0.75);
     }
   }

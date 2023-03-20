@@ -1,5 +1,6 @@
 * {
   margin: 10px;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 header {
@@ -12,16 +13,37 @@ header h1 {
   color: rgb(24, 24, 255);
 }
 
-h3 {
-  background-color: rgb(0, 125, 12);
+.subtitulo {
+  display: flex;
+  justify-content: flex-end;
+  background-color: rgb(0, 96, 125);
+}
+.subtitulo h3 {
   font-size: 35px;
   color: rgb(215, 204, 1);
 }
 
+.acertijos {
+  background-color: rgb(56, 18, 132);
+  width: 600px;
+}
+
+.textoAcertijo {
+  color: aliceblue;
+  font-size: 30px;
+}
+
+.buttons {
+  display: flex;
+  align-items: center;
+}
 .buttons .Usar {
   background-color: rgb(1, 148, 13);
   color: azure;
   border: 0px;
+  font-weight: bold;
+  height: 40px;
+  font-size: 15px;
 }
 .buttons .Usar:hover {
   background-color: rgb(3, 174, 18);
@@ -35,6 +57,9 @@ h3 {
   background-color: rgb(148, 23, 1);
   color: azure;
   border: 0px;
+  font-weight: bold;
+  height: 40px;
+  font-size: 15px;
 }
 .buttons .noUsar:hover {
   background-color: rgb(174, 40, 3);
@@ -43,11 +68,22 @@ h3 {
   background-color: rgb(255, 255, 255);
   color: black;
 }
+.buttons .jugando {
+  background-color: rgb(70, 70, 70);
+}
+.buttons .jugando:hover {
+  background-color: rgb(70, 70, 70);
+}
+.buttons .jugando:active {
+  background-color: rgb(70, 70, 70);
+}
 .buttons .Jugar {
   background-color: rgb(241, 249, 0);
   color: rgb(29, 48, 255);
   border: 0px;
   font-weight: bold;
+  height: 40px;
+  font-size: 25px;
 }
 .buttons .Jugar:hover {
   background-color: rgb(163, 255, 43);
@@ -62,19 +98,84 @@ h3 {
   align-items: center;
   flex-direction: row;
   background: rgb(75, 5, 125);
+  width: 500px;
 }
 .contenedor h4 {
   font-size: 20px;
   color: rgb(24, 255, 182);
 }
 .contenedor button {
-  background-color: rgb(0, 15, 128);
+  background-color: rgb(75, 5, 125);
   color: azure;
   border: 0px;
+  font-weight: bold;
+  height: 20px;
+  font-size: 20px;
 }
 .contenedor button:hover {
   background-color: rgb(0, 27, 231);
 }
 .contenedor button:active {
-  background-color: rgb(0, 131, 231);
+  background-color: rgb(4, 141, 245);
+}
+
+.acertijo {
+  grid-area: acertijo;
+}
+
+.dificultad {
+  grid-area: dificultad;
+}
+
+.respuesta {
+  grid-area: respuesta;
+}
+
+.link {
+  grid-area: link;
+}
+
+input {
+  width: 100px;
+}
+
+.noDisplay {
+  display: none;
+}
+
+.siDisplay {
+  width: 500px;
+  display: inline-block;
+}
+
+.formButtons {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+}
+.formButtons .formButton {
+  color: rgb(93, 93, 93);
+  border: 0px;
+  font-weight: bold;
+  height: -moz-fit-content;
+  height: fit-content;
+  font-size: 20px;
+}
+.formButtons .submit {
+  background-color: rgba(0, 255, 21, 0.75);
+}
+.formButtons .submit:hover {
+  background-color: rgba(77, 255, 163, 0.75);
+}
+.formButtons .submit:active {
+  background-color: rgba(155, 255, 225, 0.75);
+}
+.formButtons .cerrar {
+  background-color: rgba(255, 0, 0, 0.75);
+}
+.formButtons .cerrar:hover {
+  background-color: rgba(255, 126, 67, 0.75);
+}
+.formButtons .cerrar:active {
+  background-color: rgba(255, 206, 101, 0.75);
 }/*# sourceMappingURL=sass.css.map */

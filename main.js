@@ -1,34 +1,88 @@
-let cualsera = Math.random()
 
+    const contAcertijos = document.querySelector("#acertijos")
     const acertijos = [
-    { acertijo: "Tengo agujas pero no sé coser, tengo números pero no sé leer, ¿Sabes quién soy?", dificultad: 2, respuesta: "RELOJ"},
-    { acertijo: "No muerdo ni ladro, pero tengo dientes y la casa guardo. ¿Sabes quién soy?", dificultad: 3, respuesta: "LLAVE"},
-    { acertijo: "Soy como un caballo pero no me montan y no tengo color ¿Sabes quién soy?", dificultad: 1, respuesta: "CEBRA"}
-        ]
-    const nuevosAcertijos = [
-
+    { acertijo: "Tengo agujas pero no sé coser, tengo números pero no sé leer, ¿Sabes quién soy?", dificultad: 2, respuesta: "RELOJ", link: "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.shutterstock.com%2Fes%2Fsearch%2Freloj-analogico&psig=AOvVaw0WzGdkCQz3p9fXYKgV34Cj&ust=1679348281527000&source=images&cd=vfe&ved=0CBAQjRxqFwoTCKCaxID66P0CFQAAAAAdAAAAABAT"},
+    { acertijo: "No muerdo ni ladro, pero tengo dientes y la casa guardo. ¿Sabes quién soy?", dificultad: 3, respuesta: "LLAVE", link:"https://www.educima.com/dibujo-para-colorear-llave-dm22467.jpg"},
+    { acertijo: "Soy como un caballo pero no me montan y no tengo color ¿Sabes quién soy?", dificultad: 1, respuesta: "CEBRA", linl:"https://i.pinimg.com/originals/07/1c/81/071c811138f4a2dbebb8a817e3ac447c.png"}
         ]
 
-    const acertijosEnseñar = [
+        const btnAgregar = document.getElementById('agregar');   
+        const btnCerrar = document.getElementById('cerrar');
+        const display = document.getElementById("acertijo-form");
+        btnAgregar.addEventListener("click", () =>{
+          display.classList.remove("noDisplay");
+          display.classList.add("siDisplay");
+        })
+        btnCerrar.addEventListener("click", () =>{
+          display.classList.remove("siDisplay");
+          display.classList.add("noDisplay");
+        })
+        display.addEventListener("submit", (event) => {
+          event.preventDefault();
+  
+  
+          const acertijoForm = document.querySelector("#acertijo").value;
+          const respuestaForm = document.querySelector("#respuesta").value;
+          const dificultadForm = document.querySelector("#dificultad").value;
+          const linkForm = document.querySelector("#link").value;
+          nuevosAcertijos.push({acertijoForm, respuestaForm, dificultadForm, linkForm})
+          console.log(nuevosAcertijos)
+  
+        })
 
-        ]
-let usarPredeterminados
+    let usarPredeterminados = true;
     const preUsar = document.getElementById("preUsar")
     preUsar.addEventListener("click", () =>{
         if(preUsar.classList.contains("Usar")){
             preUsar.classList.remove("Usar");
             preUsar.classList.add("noUsar");
             preUsar.textContent = "No Usar Acertijos Por Defecto"
-            usarPredeterminados = true
+            usarPredeterminados = false
+            console.log(usarPredeterminados)
         }else{
             preUsar.classList.remove("noUsar");
             preUsar.classList.add("Usar");
             preUsar.textContent = "Usar Acertijos Por Defecto"
-            usarPredeterminados = false
+            usarPredeterminados = true
+            console.log(usarPredeterminados)
         }
     })
 
-    usarPredeterminados = true ? nuevosAcertijos = [...acertijos,] : nuevosAcertijos = []
+    const acertijosConNumero = nuevosAcertijos.map((acertijo, index) => {
+        return {
+          ...acertijo,
+          numero: index + 1
+        };
+      });
+      console.log(acertijosConNumero)
+
+      //iniciarJuego
+      function iniciarJuego() {
+        preUsar.classList.add("jugando")
+        const nuevosAcertijos = []
+    if (usarPredeterminados = true) {
+      nuevosAcertijos.push(...acertijos);
+    } else{
+      nuevosAcertijos = []
+    }
+        let cualsera = Math.floor(Math.random() * acertijosConNumero.length) + 1;
+        console.log("te toco el acertijo numero " + cualsera);
+        const elementoAcertijo = document.querySelector("#mostrar");
+        elementoAcertijo.classList.remove("textoAcertijo");
+        elementoAcertijo.textContent = "";
+      
+        setTimeout(() => {
+          const acertijoMostrar = acertijosConNumero.find(
+            (acertijo) => acertijo.numero === cualsera
+          );
+          elementoAcertijo.classList.add("textoAcertijo");
+          elementoAcertijo.textContent = acertijoMostrar.acertijo;
+        }, 200);
+      }
+      
+
+
+        
 
 
 
@@ -101,9 +155,3 @@ console.log("No adivinaste")
     console.log("adivinaste")
 }
 
-let Respuestas = acertijos.map(acertijo => acertijo.respuesta);
-console.log (Respuestas);
-
-//Dom
-
-const mostrar = document.querySelector(".acertijos")

@@ -5,6 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pensar y Jugar</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="sass.css">
     <link rel="stylesheet" href="style.css">
     
@@ -14,25 +17,59 @@
         <h1>Pensar y Jugar</h1>
     </header>
     <div class="subtitulo">
-        <h3>Una pagina de 3 acertijos </h3>
+        <h3>Una pagina de acertijos </h3>
     </div>
     <div class="buttons">
         <button onclick="iniciarJuego()" class="Jugar">¡Vamos a Jugar!</button>
         <button id="preUsar" class="Usar">Usar Acertijos Por Defecto</button>
     </div>
-    <div class="contenedorDeAcertijos">
-        <p class="acertijos">
+    <div id="acertijos" class="acertijos">
+        <p id="mostrar">
 
         </p>
     </div>
         <div class="contenedor">
-        <h4 class="contenido">
-Agrega tus acertijos dando click
-        </h4>
-        <button>
-            aqui
-        </button>
-    </div>
+            <h4 class="contenido">
+             Agrega tus acertijos dando click
+            </h4>
+            <button id="agregar">
+               aqui
+            </button>
+        </div>
+
+            <div class="ordenForm">
+                <form id="acertijo-form" class="noDisplay">
+                    <div>
+                        <label for="acertijo">Acertijo:</label>
+                        <input type="text" id="acertijo" name="acertijo" required>
+                    </div>
+                    <div>
+                        <label for="dificultad">Dificultad:</label>
+                        <select id="dificultad" name="dificultad" required>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="respuesta">Respuesta:</label>
+                        <input type="text" id="respuesta" name="respuesta" required>
+                    </div>
+                    <div>
+                        <label for="imagen">Link de imagen:</label>
+                        <input type="url" id="imagen" name="imagen" required>
+                    </div>
+                    <div class="formButtons ">
+                        <button class="formButton submit" type="submit">Agregar</button>
+                    </form>
+                    <button id="cerrar" class="cerrar-modal formButton cerrar">Cerrar</button>
+                  </div>
+                    </div>
+            </div>
+
+
+          
+
     <script src="main.js"></script>
 </body>
 </html>
