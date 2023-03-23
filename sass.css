@@ -27,6 +27,12 @@ header h1 {
   background-color: rgb(56, 18, 132);
   width: 600px;
 }
+.acertijos .entonces {
+  display: inline-block;
+}
+.acertijos .noEntonces {
+  display: none;
+}
 
 .textoAcertijo {
   color: aliceblue;

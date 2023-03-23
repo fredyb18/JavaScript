@@ -67,6 +67,13 @@ header{
 .acertijos{
   background-color: rgb(56, 18, 132);
   width: 600px;
+
+  .entonces{
+    display: inline-block;
+  }
+  .noEntonces{
+    display: none;
+  }
 }
 .textoAcertijo{
   color: aliceblue;
