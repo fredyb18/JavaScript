@@ -4,30 +4,36 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pensar y Jugar</title>
+    <title>Acertijos y Perritos</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="sass.css">
     <link rel="stylesheet" href="style.css">
-    
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.3/dist/sweetalert2.all.min.js "></script>
+    <script src="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/js/all.min.js"></script>
+    <link href="
+    https://cdn.jsdelivr.net/npm/sweetalert2@11.7.3/dist/sweetalert2.min.css
+    " rel="stylesheet">
 </head>
 <body>
     <header>
-        <h1>Pensar y Jugar</h1>
+        <h1>Acertijos y Perritos</h1>
     </header>
     <div class="subtitulo">
-        <h3>Una pagina de acertijos </h3>
+        <h3>Una pagina de acertijos y perritos</h3>
     </div>
     <div class="buttons">
         <button onclick="iniciarJuego()" class="Jugar">¡Vamos a Jugar!</button>
-        <button id="preUsar" class="Usar">Usar Acertijos Por Defecto</button>
+        <button id="preUsar" class="Usar ">Usar Acertijos Por Defecto</button>
     </div>
     <div id="acertijos" class="acertijos">
         <p id="mostrar">
-
         </p>
         <input class="noEntonces" type="text" id="tuRespuesta" name="respuesta" required>
+    </div>
+    <div class="imgCont">
+        <img id="imagen" class="imagenW noEntonces" src="https://cdn-icons-png.flaticon.com/512/25/25400.png" alt="imagenAcertijo">
     </div>
         <div class="contenedor">
             <h4 class="contenido">
@@ -67,7 +73,12 @@
                   </div>
                     </div>
             </div>
-
+            <h1>Mostrar imagen aleatoria de perros</h1>
+            <div class="obtImg">
+                <button class="obtenerImagen" onclick="obtenerImagenAlAzar()">Mostrar otra imagen</button>
+            <img class="imagenPerro" id="imagenPerro" src="https://img.freepik.com/vector-premium/perros-establecer-silueta-sobre-fondo-blanco-vector-aislado_566661-8904.jpg" alt="Imagen aleatoria de perros">
+            </div>
+            <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 
           
 

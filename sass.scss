@@ -54,6 +54,10 @@ header{
     }
     
 }
+input{
+  font-family: Arial, Helvetica, sans-serif;
+}
+
 
 .subtitulo{
   @include flex(flex-end );
@@ -67,15 +71,30 @@ header{
 .acertijos{
   background-color: rgb(56, 18, 132);
   width: 600px;
-
-  .entonces{
-    display: inline-block;
-  }
-  .noEntonces{
-    display: none;
-  }
+  @include flex(center, center, column );
+}
+.incorrecta{
+  color: black;
+}
+.correcta{
+  color: greenyellow;
+}
+.entonces{
+  display: block;
+}
+.noEntonces{
+  display: none;
+}
+.imgCont{
+  width: 600px;
+  @include flex(center, center, );
+}
+.imagenW{
+  width: 100px;
+  height: 100px;
 }
 .textoAcertijo{
+  text-align: center;
   color: aliceblue;
   font-size: 30px;
 }
@@ -156,17 +175,15 @@ header{
     }
   }
   
-  .acertijo { grid-area: acertijo; }
-  
-  .dificultad { grid-area: dificultad; }
-  
-  .respuesta { grid-area: respuesta; }
-  
-  .link { grid-area: link; }
-  
+
   input{
     width: 100px;
   }
+#acertijo{
+  width: 300px;
+}
+
+
   .noDisplay{
     display: none
   }
@@ -198,4 +215,17 @@ header{
     .cerrar:active{
       background-color:  rgba(255, 206, 101, 0.75);
     }
+  }
+
+  .imagenPerro{
+    width: 300px;
+    height: auto;
+  }
+
+  .obtenerImagen{
+    @include button(rgb(0, 0, 0), azure, 0px, bold, 40px, 15px);
+  }
+
+  .obtImg{
+    @include flex(start, start, column);
   }
